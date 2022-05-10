@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center mt-3 mb-1 font-monospace">Book Completed</h1>
+{% include 'partials/navbar.html' %}
+<a href="/new_bookcompleted" class="mx-5 text-dark fs-6 px-3 py-2 fw-bold text-decoration-none border border-dark bg-light">Add Completed</a>
+<div class="container mt-4 h-100">
+    <div class="row">
+        {% for complete in all_completes %}
+        <div class="col-sm border d-flex flex-column align-items-center mx-2">
+            <a href="/new_bookcompleted/{{ complete.id }}" class="fs-2 text-dark text-decoration-none">Book Title: {{ complete.book_name }}</a>
+            <p><img src="{{ complete.photo_url }}" width="250px" height="250px"></p>
+            <p><strong>Genre:</strong> {{ complete.category }}</p>
+            <p><strong>Description:</strong> {{ complete.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

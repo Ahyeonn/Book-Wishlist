@@ -1,0 +1,17 @@
+<div class="d-flex flex-row-reverse">
+    <div class="mx-3 mb-3">
+      {% if not current_user.is_authenticated %}
+      <a href="/signup" class="text-dark fs-6 px-3 py-2 fw-bold text-decoration-none border border-dark bg-light">Sign Up</a>
+      <a href="/login" class="mx-5 text-dark fs-6 px-3 py-2 fw-bold text-decoration-none border border-dark bg-light">Log In</a>
+      {% else %}
+      <a href="/logout" class="mx-5 text-dark fs-6 px-3 py-2 fw-bold text-decoration-none border border-dark bg-light">Log Out</a>
+      {% endif %}
+    </div>
+</div>
+<nav class="navbar navbar-light bg-light mb-3">
+    <div class=" d-flex justify-content-center align-items-center w-100">
+      <a class="navbar-brand mx-5" href="/">Home</a>
+      <a class="navbar-brand mx-5" href="/bookcompleted">Book-Completed</a>
+      <a class="navbar-brand mx-5" href="/bookwishlist">Book-Wishlist</a>
+    </div>
+  </nav>

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="text-center mt-3 mb-1 font-monospace">Reading Tracker</h1>
+{% include 'partials/navbar.html' %}
+<div class="container d-flex align-items-center flex-column">
+<div class="d-flex">
+<p><img src="{{ book.photo_url }}" width="250px" height="250px"></p>
+
+    <div class="mx-5">
+    <p class="mb-3"><strong>Book:</strong> {{ book.book_name }}</p>
+    <p><strong>Category:</strong> {{ book.category }}</p>
+
+    <p><strong>Description:</strong> {{ book.description }}</p>
+    </div>
+</div>
+</div>
+<div class="container d-flex align-items-center flex-column my-5">
+    <h2>Edit Book Inforamtion</h2>
+
+    <form method="POST">
+        <fieldset>
+            <legend>Please edit the book information here:</legend>
+            {{ form.csrf_token }}
+            {{ form.title.label}}
+            {{ form.title(placeholder='ex: Cinderella') }}
+            {{ form.description.label }}
+            {{ form.description(placeholder='ex: About ...') }}
+            {{ form.category.label }}
+            {{ form.category }}
+            {{ form.photo_url.label }}
+            {{ form.photo_url(placeholder='Photo URL Here')}}
+            {{ form.submit }}
+        </fieldset>
+    </form>
+</div>
+
+{% endblock %}
